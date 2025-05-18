@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control - Bot de Discord Mejorado</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Panel de Control</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/logout">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="user-info">
+        <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" alt="Avatar">
+        <h2><%= user.username %>#<%= user.discriminator %></h2>
+        <p>ID: <%= user.id %></p>
+      </div>
+      
+      <div class="servers">
+        <h3>Tus Servidores</h3>
+        <div class="server-list">
+          <% user.guilds.forEach(guild => { %>
+            <div class="server-card">
+              <% if (guild.icon) { %>
+                <img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png" alt="<%= guild.name %>">
+              <% } else { %>
+                <div class="no-icon"><%= guild.name.charAt(0) %></div>
+                <% } %>
+                <h4><%= guild.name %></h4>
+                <% if (guild.owner) { %>
+                  <span class="owner-badge">Propietario</span>
+                <% } %>
+                <% if ((guild.permissions & 0x8) === 0x8) { %>
+                  <a href="/dashboard/server/<%= guild.id %>" class="btn btn-small">Configurar</a>
+                <% } else { %>
+                  <a href="#" class="btn btn-small disabled" title="No tienes permisos de administrador en este servidor">Configurar</a>
+                <% } %>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>&copy; 2023 Bot de Discord Mejorado</p>
+      </footer>
+    </div>
+  </body>
+  </html>

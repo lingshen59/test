@@ -1,0 +1,31 @@
+{
+  "name": "discord-bot-enhanced",
+  "version": "1.0.0",
+  "description": "Un bot de Discord mejorado con múltiples comandos de moderación y utilidades",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "moderation",
+    "utilities"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/rest": "^1.7.1",
+    "discord-api-types": "^0.37.120",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "passport-discord": "^0.1.4",
+    "puppeteer": "^19.11.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
